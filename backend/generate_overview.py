@@ -7,7 +7,7 @@ from main import logging
 @dataclass
 class GenerateOverview:
     load_dotenv('config.env')
-    gemini_api_key: str = os.getenv('gemini_api_key')
+    gemini_api_key: str = os.getenv('GOOGLE_API_KEY')
 
     def create_prompt(self, file_contents):
         prompt: str = f'''

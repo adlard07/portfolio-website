@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaStackOverflow, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaStackOverflow, FaTwitter, FaYoutube, FaDiscord, FaReddit } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { AiFillInstagram } from 'react-icons/ai';
 
@@ -11,7 +11,9 @@ const Connect = () => {
     { icon: <FaTwitter />, url: 'https://x.com/BotlordWithB', name: 'Twitter' },
     { icon: <FaYoutube />, url: 'https://www.youtube.com/@AdlardDcunha', name: 'YouTube' },
     { icon: <AiFillInstagram />, url: 'https://www.instagram.com/___adelard___d__/', name: 'Instagram' },
-    { icon: <SiGmail />, url: 'mailto:adelarddcunha07@gmail.com', name: 'Email' }
+    { icon: <SiGmail />, url: 'mailto:adelarddcunha07@gmail.com', name: 'Email' },
+    { icon: <FaDiscord />, url: 'https://discord.com/users/zoozoo2152', name: 'Discord' },
+    { icon: <FaReddit />, url: 'https://www.reddit.com/user/YOUR_REDDIT_USERNAME', name: 'Reddit' } // Replace YOUR_REDDIT_USERNAME with your actual Reddit username
   ];
 
   return (
