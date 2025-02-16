@@ -16,14 +16,24 @@ const Connect = () => {
     { icon: <FaReddit />, url: 'https://www.reddit.com/user/YOUR_REDDIT_USERNAME', name: 'Reddit' } // Replace YOUR_REDDIT_USERNAME with your actual Reddit username
   ];
 
+  const SectionTitle = ({ children }) => (
+    <h2 className="text-4xl font-bold text-center mb-16 relative">
+      <span className="relative inline-block">
+        {children}
+        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#4A5D46]"></div>
+      </span>
+    </h2>
+  );
+
+
   return (
     <section className="py-16 bg-gray-50 dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-            Let's Connect
+            <SectionTitle>Let's Connect</SectionTitle>
           </h2>
-          
+
           <div className="flex flex-wrap justify-center gap-6">
             {socialLinks.map((link, index) => (
               <a

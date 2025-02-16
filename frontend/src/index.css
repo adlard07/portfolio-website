@@ -1,1 +1,22 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Or create a utility class */
+.font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+    
+}
+
+.font-anton{
+    font-family: "Anton", serif;
+}
+
+.word-spacing {
+    word-spacing: 10px;
+}
+
+.backdrop-custom {
+    backdrop-filter: blur(5px);
+}

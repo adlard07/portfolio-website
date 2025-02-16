@@ -1,15 +1,25 @@
 import requests
 import base64
+import logging
 from utils import logging
 from dataclasses import dataclass
+from dotenv import load_dotenv
+import os
+
+load_dotenv('config.env')
 
 @dataclass
 class GetGithubInfo:
     username: str = 'adlard07'
-    headers = {"Accept": "application/vnd.github+json"}
+    token: str = os.getenv('GITHUB_TOKEN')
+    headers: dict = None
 
     def __post_init__(self):
         self.base_url = f"https://api.github.com/users/{self.username}/repos"
+        self.headers = {
+            "Accept": "application/vnd.github+json",
+            "Authorization": f"Bearer {self.token}"
+        }
 
     def get_repos(self):
         """Fetches all repositories for the user."""
@@ -77,7 +87,9 @@ class GetGithubInfo:
         except Exception as e:
             return {'Exception': str(e)}
 
+
 if __name__ == "__main__":
-    github = GetGithubInfo(username='adlard07')
-    file_content = github.get_file_content(repo_name='Information-Retrieval-AI', file_path='README.md')
-    print(file_content)
+    github = GetGithubInfo()
+    repos = github.get_repos()
+    # file_content = github.get_file_content(repo_name='Information-Retrieval-AI', file_path='README.md')
+    print(repos)

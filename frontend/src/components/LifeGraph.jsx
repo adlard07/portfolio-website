@@ -89,13 +89,13 @@ const LifeAnalyser = () => {
 
       {/* Footer */}
       <div className="p-4 bg-gray-950/50 border-t border-gray-800">
-        <p className="text-gray-400 text-sm text-center italic">{message}</p>
+        <p className="text-gray-400 text-md text-center italic">{message}</p>
       </div>
     </div>
   );
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-6 space-y-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ChartCard
           title="Personal Life Analysis"
