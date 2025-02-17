@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import BgImage from '../assets/grassfields.gif';
+import SelfImage from '../assets/self/sheesh.jpg';
+import AltImage from '../assets/self/zenitsu-who.jpg';
 import About from '../components/About';
 import ProjectCards from '../components/ProjectCards';
 import Connect from '../components/Connect';
 import Memes from '../components/Memes';
 import Skills from '../components/Skills';
 import LifeAnalyser from '../components/LifeGraph';
-import { ChevronDown, Code, Database, Brain, Share2, Sparkles } from 'lucide-react';
+import { ChevronDown, SwitchCamera, Database, Brain, Share2, Sparkles, Menu } from 'lucide-react';
+import Navbar from '../components/Navbar';
+
 
 const Section = ({ children, className = '' }) => (
     <div className={`bg-black bg-opacity-80 py-24 px-6 md:px-12 ${className}`}>
@@ -58,6 +61,7 @@ const TypewriterEffect = ({ texts }) => {
 
 const HomePage = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [isFirstImage, setIsFirstImage] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -74,88 +78,104 @@ const HomePage = () => {
         document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
     };
 
+    const toggleImage = () => {
+        setIsFirstImage(!isFirstImage);
+    };
+
     return (
-        <div className="min-h-screen text-white">
+        <div className="min-h-screen bg-orange-100">
             {/* Progress Bar */}
             <div
                 className="fixed top-0 left-0 h-1 bg-[#4A5D46] z-50 transition-all duration-300"
                 style={{ width: `${scrollProgress}%` }}
             />
 
+
             {/* Main Container with blurred background */}
-            <div className="relative min-h-screen">
-                <div
-                    className="absolute inset-0 bg-cover bg-center bg-fixed backdrop-custom-[4px]"
-                    style={{ backgroundImage: `url(${BgImage})` }}
-                ></div>
+            <div className="relative min-h-screen flex flex-col items-center justify-center pt-16">
+                <div className="relative flex flex-col lg:flex-row items-center justify-between px-4 sm:px-8 md:px-16 w-full max-w-7xl gap-8 lg:gap-16">
+                    {/* Hero Section */}
+                    <div className="w-full lg:max-w-2xl space-y-6 text-center lg:text-left">
 
-                {/* Hero Section */}
-                <div className="relative h-screen flex flex-col items-start justify-center px-8 md:px-16">
-                    {/* Overlay only for the hero section */}
-                    <div className="absolute inset-0 bg-black/10 backdrop-blur-[4px]"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-20"></div>
-
-                    <div className="max-w-2xl relative z-30">
-                        <div className="text-white font-bebas font-bold space-y-4">
-                            <h1 className="text-6xl md:text-9xl tracking-tight">
-                                Data Scientist
-                            </h1>
-                            <h2 className="text-4xl md:text-6xl text-gray-300">
-                                I <TypewriterEffect texts={[
-                                    "find patterns in chaos",
-                                    "transform data into insights",
-                                    "build intelligent solutions",
-                                ]} />
-                            </h2>
-                            <p className="text-4xl font-normal text-white mt-6">
-                                Turning data into actionable insights through machine learning,
-                                statistical analysis, and creative problem-solving
-                            </p>
-                        </div>
+                        {/* Navbar */}
+                        <Navbar />
+                        
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bebas font-bold tracking-tight text-gray-700 whitespace-nowrap">
+                            Hi, I'm Adlard 👋
+                        </h1>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-700">
+                            I <TypewriterEffect texts={[
+                                "find patterns in chaos",
+                                "transform data into insights",
+                                "build intelligent solutions",
+                            ]} />
+                        </h2>
+                        <p className="text-xl sm:text-2xl font-normal text-gray-600">
+                            Turning data into actionable insights through machine learning,
+                            statistical analysis, and creative problem-solving.
+                        </p>
                     </div>
 
-                    <button
-                        onClick={scrollToContent}
-                        className="absolute bottom-12 left-1/2 translate-x-1/2 z-50 animate-bounce group focus:outline-none"
-                        aria-label="Scroll to content"
-                    >
-                        <ChevronDown className="w-10 h-10 text-white/80 group-hover:text-[#4A5D46] transition-colors duration-300" />
-                    </button>
-
+                    {/* Image Section */}
+                    <div className="relative w-full sm:w-[24rem] md:w-[28rem] lg:w-[30.8rem] h-[28rem] sm:h-[32rem] md:h-[34rem] lg:h-[37.4rem] flex-shrink-0 group">
+                        <img
+                            src={isFirstImage ? SelfImage : AltImage}
+                            alt="Your Picture"
+                            className="absolute inset-0 object-cover w-full h-full rounded-2xl shadow-xl transition-all duration-300 group-hover:scale-[1.02] group-hover:-rotate-2"
+                        />
+                        <button
+                            onClick={toggleImage}
+                            className="absolute bottom-4 right-4 bg-gray-800/70 text-white p-2 rounded-full shadow-md hover:bg-gray-700 transition-all duration-300"
+                            aria-label="Switch Image"
+                        >
+                            <SwitchCamera className="w-6 h-6" />
+                        </button>
+                    </div>
                 </div>
 
-                {/* Main Content */}
-                <main id="content" className="relative">
-                    <div className="bg-black border-b border-gray-800 pt-20 pb-20">
-                        <About />
-                    </div>
-
-                    <div className="bg-black border-b border-gray-800 pt-20 pb-20">
-                        <ProjectCards />
-                    </div>
-
-                    <Section className="border-b border-gray-800">
-                        <SectionTitle icon={Database}>Skills</SectionTitle>
-                        <Skills />
-                    </Section>
-
-                    <Section className="border-b border-gray-800">
-                        <SectionTitle icon={Sparkles}>Life Analysis</SectionTitle>
-                        <LifeAnalyser />
-                    </Section>
-
-                    <Section className="border-b border-gray-800">
-                        <SectionTitle icon={Brain}>Memes</SectionTitle>
-                        <Memes />
-                    </Section>
-
-                    <Section>
-                        <SectionTitle icon={Share2}>Let's Connect</SectionTitle>
-                        <Connect />
-                    </Section>
-                </main>
+                {/* Scroll Button */}
+                <button
+                    onClick={scrollToContent}
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 animate-bounce group focus:outline-none"
+                    aria-label="Scroll to content"
+                >
+                    <ChevronDown className="w-10 h-10 text-white/80 group-hover:text-[#4A5D46] transition-colors duration-300" />
+                </button>
             </div>
+
+
+            {/* Main Content */}
+            <main id="content" className="relative">
+                <div className="bg-black border-b border-gray-800 pt-20 pb-20">
+                    <About />
+                </div>
+
+                <div className="bg-black border-b border-gray-800 pt-20 pb-20">
+                    <ProjectCards />
+                </div>
+
+                <Section className="border-b border-gray-800">
+                    <SectionTitle icon={Database}>Skills</SectionTitle>
+                    <Skills />
+                </Section>
+
+                <Section className="border-b border-gray-800">
+                    <SectionTitle icon={Sparkles}>Life Analysis</SectionTitle>
+                    <LifeAnalyser />
+                </Section>
+
+                <Section className="border-b border-gray-800">
+                    <SectionTitle icon={Brain}>Memes</SectionTitle>
+                    <Memes />
+                </Section>
+
+                <Section>
+                    <SectionTitle icon={Share2}>Let's Connect</SectionTitle>
+                    <Connect />
+                </Section>
+            </main>
         </div>
+
     );
 };
 
