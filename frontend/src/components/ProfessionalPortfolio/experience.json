@@ -1,0 +1,109 @@
+[
+    {
+        "title": "Jr. System Engineer",
+        "company": "Eduvance.AI Ptv. Ltd",
+        "years": "Feb 2025 - Current",
+        "companyUrl": "https://test.eduvance.ai/",
+        "responsibilities": [
+            "Developed and maintained multiple React applications",
+            "Developed an AI-driven workforce transformation platform to optimize employee training, enhance team capabilities, and streamline upskilling processes for large enterprises, improving productivity and efficiency.",
+            "Designed, developed, and deployed Eduvance.AI official page using React.js, Vite, Tailwind CSS, and Python on AWS, ensuring high performance, scalability, and seamless user experience.",
+            "Collaborated with cross-functional teams",
+            "Build and deployed Python backend, that included database and wrote a function to send custom emails"
+        ],
+        "technologies": [
+            "React",
+            "Python",
+            "Machine Learning",
+            "LLM",
+            "Self Attention",
+            "AWS RDS",
+            "Tailwind CSS",
+            "Node.js",
+            "AWS Lambda",
+            "AWS EC2",
+            "AWS S3",
+            "AWS Amplify",
+            "Docker"
+        ],
+        "achievements": [
+            "Improved application performance by 100%",
+            "Contributed and deployed software solutions to more than 5 companies including clients like Mahindra, RPG Group, Hindware, McKinsey & Company and Deloitte"
+        ]
+    },
+    {
+        "title": "Digital Public Relation Intern",
+        "company": "Forbes Advisor Pvt. Ltd.",
+        "years": "April 2024 – Nov 2024",
+        "companyUrl": "https://www.forbes.com/sites/advisor/",
+        "responsibilities": [
+            "Designed, Developed and Deployed an AI-powered prompt-based query system for PostgreSQL, enabling natural language data access and reducing query complexity for non-technical data research team, now used globally across DPR & Data Research department.",
+            "Extracted data using web scraping, maintained and standardized data with Beautiful Soup, Selenium, Scrapy, and SQL, enhancing data accuracy and reporting efficiency for business analysis. ",
+            "Automated a dynamic web scraping system with LLM-generated (GPT-3.5) scripts and API identification by fine-tuning, pipelining multiple systems and prompt engineering therefore increasing data extraction efficiency and reliability (requires human validation for data accuracy)."
+        ],
+        "technologies": [
+            "Python",
+            "Machine Learning",
+            "LLM",
+            "Chroma DB",
+            "Javascript",
+            "HTML/CSS",
+            "AWS Lambda",
+            "AWS EC2",
+            "Docker"
+        ],
+        "achievements": [
+            "Built System that is been currently been used world wide across multiple departments.",
+            "Increased personal and company efficiency drastically by about 60-70% by integrating AI Web Scraper to reduce idle time."
+        ]
+    },
+    {
+        "title": "Data Analyst Intern",
+        "company": "Catalyst Management Services Pvt. Ltd.",
+        "years": "Jan 2024 – April 2024",
+        "companyUrl": "https://www.cms.org.in/",
+        "responsibilities": [
+            "Increased data collection efficiency using Beautiful Soup, Parser and Selenium to streamline scraping processes from diverse sources by performing mass web scraping on over 250+ websites as data sources.",
+            "Developed automated ETL pipelines, reducing data update processing time and enhancing data availability for analysis.",
+            "Conducted rigorous and multiple levels/phases of data cleaning and validation with Pandas, ensuring dataset accuracy and reliability through well-documented protocols. Automated the whole process into a single system by the end of the sprint"
+        ],
+        "technologies": [
+            "Python",
+            "Javascript",
+            "Docker"
+        ],
+        "achievements": [
+            "Improved application performance by 100%",
+            "Contributed and deployed software solutions to more than 5 companies including clients like Mahindra, RPG Group, Hindware, McKinsey & Company and Deloitte"
+        ]
+    },
+    {
+        "title": "Data Scientist Intern",
+        "company": "Plan My Venture Pvt. Ltd.",
+        "years": "Mar 2023 – Dec 2023",
+        "companyUrl": "https://planmyventure.com/",
+        "responsibilities": [
+            "Built and optimized statistical models, achieving predictive accuracy over 85% on client insights through hypothesis testing, forecasting, and classification.",
+            "Extracted, cleaned, and engineered features from databases using SQL, Pandas, and NumPy, while ensuring high-quality datasets and automated Shopify integration to display client data on dashboard.",
+            "Led a team to design visualizations and reports with Matplotlib and Seaborn guiding frontend team for required dashboard driving strategic decisions.",
+            "Designed and implemented a business intelligence transformer model to recommend improvements in business model to improve long term venture growth by leveraging ‘google-bert/bert-base-uncased’, fine-tuning it on financial (textual & numerical) data gathered including client reports, SEC: Reports and Financial Statements, Yahoo Finance, and Zoho Books."
+        ],
+        "technologies": [
+            "Python",
+            "Machine Learning",
+            "LLM",
+            "PySpark",
+            "LangChain",
+            "Flask",
+            "Fast API",
+            "Node.js",
+            "AWS Lambda",
+            "AWS EC2",
+            "AWS S3",
+            "Docker"
+        ],
+        "achievements": [
+            "Designed, Developer, and Deployed a Business-Intelligent-AI that provided business strategies using current strategies and financial output of the companies."
+        ]
+    }
+]

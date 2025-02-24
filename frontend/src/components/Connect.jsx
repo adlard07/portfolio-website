@@ -1,59 +1,40 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaStackOverflow, FaTwitter, FaYoutube, FaDiscord, FaReddit } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
-import { AiFillInstagram } from 'react-icons/ai';
+import { ArrowRight } from "lucide-react";
 
 const Connect = () => {
-  const socialLinks = [
-    { icon: <FaGithub />, url: 'https://github.com/adlard07', name: 'GitHub' },
-    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/adelard-dcunha-6186b0216/', name: 'LinkedIn' },
-    { icon: <FaStackOverflow />, url: 'https://stackoverflow.com/users/23564658/adlard', name: 'Stack Overflow' },
-    { icon: <FaTwitter />, url: 'https://x.com/BotlordWithB', name: 'Twitter' },
-    { icon: <FaYoutube />, url: 'https://www.youtube.com/@AdlardDcunha', name: 'YouTube' },
-    { icon: <AiFillInstagram />, url: 'https://www.instagram.com/___adelard___d__/', name: 'Instagram' },
-    { icon: <SiGmail />, url: 'mailto:adelarddcunha07@gmail.com', name: 'Email' },
-    { icon: <FaDiscord />, url: 'https://discord.com/users/zoozoo2152', name: 'Discord' },
-    { icon: <FaReddit />, url: 'https://www.reddit.com/user/YOUR_REDDIT_USERNAME', name: 'Reddit' } // Replace YOUR_REDDIT_USERNAME with your actual Reddit username
-  ];
-
-  const SectionTitle = ({ children }) => (
-    <h2 className="text-4xl font-bold text-center mb-16 relative">
-      <span className="relative inline-block">
-        {children}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#4A5D46]"></div>
-      </span>
-    </h2>
-  );
-
-
   return (
-    <section className="py-16 bg-gray-50 dark:bg-black">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-            <SectionTitle>Let's Connect</SectionTitle>
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-6">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300"
-                aria-label={link.name}
-              >
-                <span className="text-2xl text-gray-600 dark:text-gray-300 hover:text-[#ff7b00] dark:hover:text-[#ffaa00] transition-colors duration-300">
-                  {React.cloneElement(link.icon, { className: 'w-8 h-8' })}
-                </span>
-              </a>
-            ))}
+    <section className="py-16 px-4 bg-black text-white">
+      <div className="container mx-auto max-w-6xl text-center">
+        <span className="font-display text-sm tracking-widest text-neutral-400">THE SOCIAL EXPERIMENT</span>
+        <h2 className="font-display text-6xl mt-2 mb-8">LET'S CONNECT</h2>
+        <p className="text-xl text-neutral-400 mb-12 font-serif italic">
+          "Because my social skills are slightly better than my first React app"
+        </p>
+        <div className="flex flex-col items-center gap-6">
+          <a
+            href="mailto:hello@example.com"
+            className="group inline-flex items-center gap-2 text-xl hover:text-neutral-400 transition-colors"
+          >
+            adelarddcunha07@gmail.com
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <div className="flex gap-8 text-lg">
+            <a href="https://github.com/adlard07" className="hover:text-neutral-400 transition-colors">
+              GITHUB
+            </a>
+            <a href="https://www.linkedin.com/in/adelard-dcunha-6186b0216/" className="hover:text-neutral-400 transition-colors">
+              LINKEDIN
+            </a>
+            <a href="https://x.com/BotlordWithB" className="hover:text-neutral-400 transition-colors">
+              TWITTER
+            </a>
+            <a href="https://www.reddit.com/user/Vast_Excitement_945/" className="hover:text-neutral-400 transition-colors">
+              Reddit
+            </a>
+            <a href="https://stackoverflow.com/users/23564658/adlard" className="hover:text-neutral-400 transition-colors">
+              Stack Overflow
+            </a>
           </div>
-
-          <p className="mt-8 text-white dark:text-gray-400">
-            Reach out or follow my journey through code and creativity
-          </p>
         </div>
       </div>
     </section>
