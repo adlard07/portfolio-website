@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Header";
-import ProjectTiles from "../components/Projects/ProjectTiles";
+import ProjectTiles from "../components/Home/ProjectTiles";
 
 const Projects = () => {
     return (

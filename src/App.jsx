@@ -17,7 +17,6 @@ function App() {
         <Route path="/professional" element={<ProfessionalPage />} />
         <Route path="/memes" element={<Memes />} />
         <Route path="/books" element={<Books />} />
-        <Route path="/projects" element={<Projects />} />
         <Route path="/projects/quantitative-trading-strategy-with-sentiment-and-risk-analysis" element={<QuantTradingStrategy />} />
         <Route path="/projects/discord-X-spotify-X-youtube" element={<DiscordSpotifyYoutube />} />
         <Route path="/projects/twitter-tweeter" element={<TwitterTweeter />} />

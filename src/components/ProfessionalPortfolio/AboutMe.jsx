@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function AboutMe() {
+
   return (
     <section className="relative mb-20 px-4 py-12">
       {/* Decorative background elements */}
@@ -23,7 +26,7 @@ export default function AboutMe() {
             transition={{ delay: 0.4 }}
             className="font-display text-6xl mt-6 mb-8 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent"
           >
-            ABOUT ME
+            Adlard Dcunha
           </motion.h1>
         </div>
 
@@ -36,8 +39,8 @@ export default function AboutMe() {
             className="leading-relaxed border-l-4 border-neutral-200 pl-6"
           >
             A passionately curious System Engineer with expertise in building building machine learning and deep learning
-            applications. Specializing in full stack and development with Python, React, Tailwind.CSS,
-            with a strong foundation in Machine/Deep Learning & Transformers.
+            applications. Specializing in Machine/Deep Learning, Transformer models,
+            with a strong foundation in full stack development in Python, React & Node.js, Tailwind.CSS.
           </motion.p>
 
           <motion.p
@@ -59,10 +62,11 @@ export default function AboutMe() {
             transition={{ delay: 1 }}
             className="mt-12"
           />
-          <button className="group flex items-center gap-2 font-display text-sm tracking-wider text-neutral-700 hover:text-neutral-900 transition-colors">
+          <a href='https://github.com/adlard07' className="group flex items-center gap-2 font-display text-sm tracking-wider text-neutral-700 hover:text-neutral-900 transition-colors">
+            <FontAwesomeIcon icon={faGithub} className="w-6 h-8" />
             VIEW MY WORK
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
       </motion.div>
     </section>
