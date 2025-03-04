@@ -6,7 +6,6 @@ import Skills from "../components/ProfessionalPortfolio/Skills";
 import Projects from "../components/ProfessionalPortfolio/Projects";
 
 import Header from "../components/Header";
-import Connect from '../components/Connect';
 
 export default function ProfessionalPage() {
   return (
@@ -19,7 +18,6 @@ export default function ProfessionalPage() {
         <Skills />
         <Projects />
       </div>
-        <Connect/>
     </main>
   );
 }

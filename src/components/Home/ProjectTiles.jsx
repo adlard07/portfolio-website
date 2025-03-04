@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { X, Star, Code, Eye, ExternalLink, GitBranch, Calendar, Coffee, Terminal } from "lucide-react";
+import { X, Star, Code, ExternalLink, GitBranch, Calendar, Coffee } from "lucide-react";
 import DOMPurify from "dompurify";
 
 const API_URL = "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/personal/repo_info/";
 const OVERVIEW_URL = "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/overview/personal/";
 
-const ProjectTiles = () => {
+const ProjectTiles = ({ isDarkMode }) => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [loadingAnimation, setLoadingAnimation] = useState(0);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const ProjectTiles = () => {
   useEffect(() => {
     if (loading) {
       const interval = setInterval(() => {
-        setLoadingAnimation(prev => (prev + 1) % 4);
+        setLoadingAnimation((prev) => (prev + 1) % 4);
       }, 300);
       return () => clearInterval(interval);
     }
@@ -63,12 +62,8 @@ const ProjectTiles = () => {
         overview: "Failed to load overview. Apparently, even AI can't make sense of my coding style."
       }));
     } finally {
-      setTimeout(() => setLoading(false), 800); // Add a slight delay for dramatic effect
+      setTimeout(() => setLoading(false), 800); // Dramatic effect delay
     }
-  };
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
   };
 
   const getRandomLoadingMessage = () => {
@@ -97,8 +92,8 @@ const ProjectTiles = () => {
       <main className="max-w-7xl mx-auto p-8">
         <div className={`relative mb-16 p-8 ${isDarkMode ? 'border-white' : 'border-black'} border-2 rounded-lg overflow-hidden flex flex-row items-center justify-between`}>
           <div id="projects">
-            <h2 className={`text-5xl font-extrabold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-              Projects <span className="italic">Portfolio</span>
+            <h2 className={`text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              Projects Portfolio
             </h2>
 
             <p className={`text-xl mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
@@ -109,20 +104,11 @@ const ProjectTiles = () => {
               *Warning: Code quality may vary depending on caffeine levels and deadline proximity
             </div>
           </div>
-          {/* <button
-            onClick={toggleTheme}
-            className={`p-3 rounded-full transform transition-all duration-300 hover:scale-110 ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'} shadow-lg`}
-          >
-            {isDarkMode ? '☀️' : '🌙'}
-          </button> */}
-
           <div className="absolute -left-4 -top-4 w-16 h-16 border-2 border-black dark:border-white opacity-20"></div>
         </div>
 
-
         {error && (
-          <div className={`p-6 rounded-lg mb-12 border-2 ${isDarkMode ? 'bg-black text-white border-white' : 'bg-white text-black border-black'
-            }`}>
+          <div className={`p-6 rounded-lg mb-12 border-2 ${isDarkMode ? 'bg-black text-white border-white' : 'bg-white text-black border-black'}`}>
             <h3 className="text-xl font-bold mb-2">Houston, We Have a Problem</h3>
             <p>{error}</p>
             <p className="mt-2 italic">Try refreshing the page, or just accept that technology hates me.</p>
@@ -143,10 +129,11 @@ const ProjectTiles = () => {
             projects.map((project) => (
               <div
                 key={project.id}
-                className={`rounded-lg transition-all duration-300 transform hover:-translate-y-2 hover:rotate-1 overflow-hidden cursor-pointer border-2 h-full ${isDarkMode
-                  ? 'bg-black border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]'
-                  : 'bg-white border-black hover:shadow-[0_0_15px_rgba(0,0,0,0.3)]'
-                  }`}
+                className={`rounded-lg transition-all duration-300 transform hover:-translate-y-2 hover:rotate-1 overflow-hidden cursor-pointer border-2 h-full ${
+                  isDarkMode
+                    ? 'bg-black border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]'
+                    : 'bg-white border-black hover:shadow-[0_0_15px_rgba(0,0,0,0.3)]'
+                }`}
                 onClick={() => {
                   setSelectedProject(project);
                   fetchOverview(project.name);
@@ -185,8 +172,7 @@ const ProjectTiles = () => {
               if (e.target === e.currentTarget) setSelectedProject(null);
             }}
           >
-            <div className={`rounded-lg max-w-3xl w-full relative animate-in fade-in overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'
-              }`}>
+            <div className={`rounded-lg max-w-3xl w-full relative animate-in fade-in overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
               {/* Modal header with stripe design */}
               <div className={`h-2 w-full ${isDarkMode ? 'bg-white' : 'bg-black'}`}></div>
 
@@ -196,7 +182,7 @@ const ProjectTiles = () => {
                   className={`absolute top-4 right-4 p-2 rounded-full border ${isDarkMode
                     ? 'border-white text-white hover:bg-white hover:text-black'
                     : 'border-black text-black hover:bg-black hover:text-white'
-                    } transition-colors duration-300`}
+                  } transition-colors duration-300`}
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -222,19 +208,14 @@ const ProjectTiles = () => {
                     </div>
                   </div>
 
-                  <div className={`border-2 p-6 rounded-lg my-6 max-h-[50vh] overflow-y-auto ${isDarkMode ? 'border-white' : 'border-black'
-                    }`}>
+                  <div className={`border-2 p-6 rounded-lg my-6 max-h-[50vh] overflow-y-auto ${isDarkMode ? 'border-white' : 'border-black'}`}>
                     {loading ? (
                       <div className="text-center py-8">
                         <div className="relative h-16 w-16 mx-auto mb-6">
-                          <div className={`absolute h-16 w-2 left-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 0 ? 'opacity-100' : 'opacity-30'
-                            }`}></div>
-                          <div className={`absolute h-2 w-16 top-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 1 ? 'opacity-100' : 'opacity-30'
-                            }`}></div>
-                          <div className={`absolute h-16 w-2 left-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 2 ? 'opacity-100' : 'opacity-30'
-                            }`}></div>
-                          <div className={`absolute h-2 w-16 top-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 3 ? 'opacity-100' : 'opacity-30'
-                            }`}></div>
+                          <div className={`absolute h-16 w-2 left-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 0 ? 'opacity-100' : 'opacity-30'}`}></div>
+                          <div className={`absolute h-2 w-16 top-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 1 ? 'opacity-100' : 'opacity-30'}`}></div>
+                          <div className={`absolute h-16 w-2 left-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 2 ? 'opacity-100' : 'opacity-30'}`}></div>
+                          <div className={`absolute h-2 w-16 top-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 3 ? 'opacity-100' : 'opacity-30'}`}></div>
                         </div>
                         <p className={`italic text-lg ${isDarkMode ? 'text-white' : 'text-black'}`}>
                           {getRandomLoadingMessage()}
@@ -258,7 +239,7 @@ const ProjectTiles = () => {
                       className={`inline-flex items-center px-8 py-3 rounded-none border-2 transition-all duration-300 ${isDarkMode
                         ? 'bg-black text-white border-white hover:bg-white hover:text-black'
                         : 'bg-white text-black border-black hover:bg-black hover:text-white'
-                        }`}
+                      }`}
                     >
                       View on GitHub <ExternalLink className="w-4 h-4 ml-2" />
                     </a>
@@ -273,16 +254,7 @@ const ProjectTiles = () => {
         )}
       </main>
 
-      <footer className={`${isDarkMode ? 'border-white' : 'border-black'} border-t-2 p-6 mt-12`}>
-        <div className="max-w-7xl mx-auto text-center">
-          <p className={`${isDarkMode ? 'text-white' : 'text-black'}`}>
-            Built with excessive amounts of caffeine, Spotify, Discord and questionable life choices
-          </p>
-          <p className={`text-sm mt-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-            © {new Date().getFullYear()} - Code that somehow works
-          </p>
-        </div>
-      </footer>
+
     </div>
   );
 };

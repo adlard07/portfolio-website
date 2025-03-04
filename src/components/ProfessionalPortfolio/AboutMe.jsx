@@ -26,7 +26,7 @@ export default function AboutMe() {
             transition={{ delay: 0.4 }}
             className="font-display text-6xl mt-6 mb-8 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent"
           >
-            Adlard Dcunha
+            Hi, I'm Adelard.
           </motion.h1>
         </div>
 

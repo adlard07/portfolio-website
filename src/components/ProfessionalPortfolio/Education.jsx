@@ -9,7 +9,7 @@ const educationData = [
   },
   {
     degree: "Diploma In Electronics & Telecommunication",
-    university: "Fr. Conceicao Rodrigez College Of Engineering, Bandra",
+    university: "St. Xavier's Technical Institute",
     years: "2018 - 2021",
   },
 ];

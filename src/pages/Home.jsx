@@ -1,10 +1,9 @@
-// HomePage.jsx
 import React, { useState } from 'react';
 import Header from "../components/Header";
-import Connect from '../components/Connect';
 import AboutSection from '../components/Home/About';
 import HeroSection from '../components/Home/HeroSection';
 import ProjectTiles from '../components/Home/ProjectTiles';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   // Lift the theme state to HomePage so that all children use the same state
@@ -16,15 +15,15 @@ const HomePage = () => {
   };
 
   return (
-    <main className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} min-h-screen`}>
+    <div className={`min-h-screen transition-colors ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      {/* Pass the theme state and toggle function to the HeroSection */}
-      <HeroSection isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      {/* Pass the theme state to AboutSection (and any other components as needed) */}
-      <AboutSection isDarkMode={isDarkMode} />
-      <ProjectTiles isDarkMode={isDarkMode} />
-      <Connect isDarkMode={isDarkMode} />
-    </main>
+      <main>
+        <HeroSection isDarkMode={isDarkMode} />
+        <AboutSection isDarkMode={isDarkMode} />
+        <ProjectTiles isDarkMode={isDarkMode} />
+      </main>
+      <Footer isDarkMode={isDarkMode} />
+    </div>
   );
 };
 
