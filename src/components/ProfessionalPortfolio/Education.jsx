@@ -1,5 +1,5 @@
 import React from "react";
-import { GraduationCap, ExternalLink } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 const educationData = [
   {
@@ -14,19 +14,33 @@ const educationData = [
   },
 ];
 
-export default function Education() {
+export default function Education({ isDarkMode }) {
+  const bgCircle = isDarkMode ? 'bg-neutral-900' : 'bg-neutral-50';
+  const iconBg = isDarkMode ? 'bg-neutral-800' : 'bg-neutral-100';
+  const iconColor = isDarkMode ? 'text-white' : 'text-neutral-700';
+  const gradientText = isDarkMode
+    ? 'bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent'
+    : 'bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent';
+  const cardBorder = isDarkMode ? 'border-neutral-700' : 'border-neutral-200';
+  const cardHover = isDarkMode ? 'hover:border-neutral-500' : 'hover:border-neutral-400';
+  const dotBg = isDarkMode ? 'bg-neutral-900' : 'bg-white';
+  const dotBorder = isDarkMode ? 'border-neutral-700' : 'border-neutral-200';
+  const textPrimary = isDarkMode ? 'text-white' : 'text-neutral-800';
+  const textSecondary = isDarkMode ? 'text-neutral-400' : 'text-neutral-600';
+  const textMuted = isDarkMode ? 'text-neutral-500' : 'text-neutral-500';
+
   return (
-    <section className="mb-20 relative">
+    <section className="mb-20 relative transition-all duration-500">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-neutral-50 rounded-full opacity-40 blur-2xl -z-10" />
+      <div className={`absolute top-0 right-0 w-32 h-32 ${bgCircle} rounded-full opacity-40 blur-2xl -z-10`} />
 
       {/* Header */}
       <div className="flex items-center gap-4 mb-12 group">
         <div className="relative">
-          <div className="absolute inset-0 bg-neutral-100 rounded-lg blur-sm group-hover:blur-md transition-all duration-300" />
-          <GraduationCap className="size-8 relative text-neutral-700 group-hover:scale-110 transition-transform duration-300" />
+          <div className={`absolute inset-0 ${iconBg} rounded-lg blur-sm group-hover:blur-md transition-all duration-300`} />
+          <GraduationCap className={`size-8 relative ${iconColor} group-hover:scale-110 transition-transform duration-300`} />
         </div>
-        <h2 className="font-display text-4xl tracking-wide bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent">
+        <h2 className={`font-display text-4xl tracking-wide ${gradientText}`}>
           EDUCATION
         </h2>
       </div>
@@ -36,27 +50,26 @@ export default function Education() {
         {educationData.map((edu, index) => (
           <div
             key={index}
-            className="relative border-l-4 border-neutral-200 pl-8 py-6 group hover:border-neutral-400 transition-colors duration-300"
+            className={`relative border-l-4 ${cardBorder} ${cardHover} pl-8 py-6 group transition-colors duration-300`}
           >
             {/* Timeline dot */}
-            <div className="absolute -left-[11px] top-8 w-[18px] h-[18px] bg-white border-4 border-neutral-200 rounded-full group-hover:border-neutral-400 transition-colors duration-300" />
+            <div className={`absolute -left-[11px] top-8 w-[18px] h-[18px] ${dotBg} border-4 ${dotBorder} rounded-full group-hover:border-neutral-500 transition-colors duration-300`} />
 
             {/* Content */}
             <div className="space-y-4">
               <div>
-                <h3 className="font-display text-2xl text-neutral-800 group-hover:text-neutral-900 transition-colors duration-300">
+                <h3 className={`font-display text-2xl ${textPrimary} group-hover:text-white transition-colors duration-300`}>
                   {edu.degree}
                 </h3>
                 <div className="flex items-center gap-2 mt-2">
-                  <p className="font-serif text-neutral-600">
+                  <p className={`font-serif ${textSecondary}`}>
                     {edu.university}
                   </p>
                 </div>
-                <p className="font-serif text-neutral-500 tracking-wide">
+                <p className={`font-serif ${textMuted} tracking-wide`}>
                   {edu.years}
                 </p>
               </div>
-
             </div>
           </div>
         ))}

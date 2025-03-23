@@ -85,14 +85,14 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             <div className="hidden md:flex items-center gap-10 tracking-wider">
               <Link
                 to={isProfessionalPage ? "/" : "/professional"}
-                className="text-md uppercase hover:text-gray-500 transition-colors"
+                className="text-md uppercase hover:opacity-70 transition-colors"
               >
                 {isProfessionalPage ? "Home" : "Professional"}
               </Link>
 
               <button
                 onClick={openConnectModal}
-                className="text-md uppercase hover:text-gray-500 transition-colors"
+                className="text-md uppercase hover:opacity-70 transition-colors"
               >
                 Connect
               </button>
@@ -120,7 +120,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               </button>
               <button
                 onClick={() => setSidebarOpen(true)}
-                className="hover:text-gray-500 transition-colors"
+                className="hover:opacity-70 transition-colors"
                 aria-label="Open menu"
               >
                 <Menu className="w-6 h-6" />
@@ -147,7 +147,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             <button
               onClick={() => setSidebarOpen(false)}
               aria-label="Close menu"
-              className="transition-colors hover:text-gray-500"
+              className="transition-colors hover:opacity-70"
             >
               <X className="w-6 h-6" />
             </button>
@@ -156,7 +156,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             <Link
               to={isProfessionalPage ? "/" : "/professional"}
               onClick={() => setSidebarOpen(false)}
-              className="hover:text-gray-500 transition-colors"
+              className="hover:opacity-70 transition-colors"
             >
               {isProfessionalPage ? "Home" : "Professional"}
             </Link>
@@ -166,13 +166,81 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 setSidebarOpen(false);
                 openConnectModal();
               }}
-              className="text-left hover:text-gray-500 transition-colors"
+              className="text-left hover:opacity-70 transition-colors"
             >
               Connect
             </button>
           </nav>
         </div>
       </div>
+
+      {/* Connect Modal */}
+      {connectModalOpen && (
+        <div
+          className={`fixed inset-0 z-50 flex items-center justify-center ${
+            isDarkMode ? "bg-black/50" : "bg-black/30"
+          } backdrop-blur-sm transition-opacity duration-300 ${
+            animateModal ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={closeConnectModal}
+        >
+          <div
+            className={`${
+              isDarkMode
+                ? "bg-black border border-white text-white"
+                : "bg-white border border-black text-black"
+            } p-8 rounded-xl shadow-lg transform transition-transform duration-300 ${
+              animateModal ? "scale-100" : "scale-95"
+            } w-full max-w-2xl`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex justify-between items-center mb-8 border-b pb-4">
+              <h3 className="text-3xl font-bold">Connect with me</h3>
+              <button
+                onClick={closeConnectModal}
+                className="hover:opacity-70 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Social Links */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-4 py-4 px-6 rounded-lg border ${
+                    isDarkMode ? "border-white" : "border-black"
+                  } group hover:bg-black hover:text-white transition-all duration-200`}
+                >
+                  <div
+                    className={`w-10 h-10 flex items-center justify-center rounded-full border ${
+                      isDarkMode ? "border-white" : "border-black"
+                    } ${link.color || ""} group-hover:text-white`}
+                  >
+                    <FontAwesomeIcon icon={link.icon} className="w-5 h-5" />
+                  </div>
+                  <span className="flex-1 text-lg font-medium">{link.label}</span>
+                  <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div
+              className={`mt-8 pt-4 border-t text-center text-sm ${
+                isDarkMode ? "border-white text-neutral-400" : "border-black text-gray-600"
+              }`}
+            >
+              Feel free to reach out on any platform above!
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

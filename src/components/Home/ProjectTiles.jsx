@@ -209,19 +209,28 @@ const ProjectTiles = ({ isDarkMode }) => {
                   </div>
 
                   <div className={`border-2 p-6 rounded-lg my-6 max-h-[50vh] overflow-y-auto ${isDarkMode ? 'border-white' : 'border-black'}`}>
-                    {loading ? (
-                      <div className="text-center py-8">
-                        <div className="relative h-16 w-16 mx-auto mb-6">
-                          <div className={`absolute h-16 w-2 left-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 0 ? 'opacity-100' : 'opacity-30'}`}></div>
-                          <div className={`absolute h-2 w-16 top-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 1 ? 'opacity-100' : 'opacity-30'}`}></div>
-                          <div className={`absolute h-16 w-2 left-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 2 ? 'opacity-100' : 'opacity-30'}`}></div>
-                          <div className={`absolute h-2 w-16 top-7 ${isDarkMode ? 'bg-white' : 'bg-black'} ${loadingAnimation === 3 ? 'opacity-100' : 'opacity-30'}`}></div>
-                        </div>
-                        <p className={`italic text-lg ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                          {getRandomLoadingMessage()}
-                        </p>
-                      </div>
-                    ) : (
+{loading ? (
+  <div className="flex flex-col items-center justify-center py-12 space-y-6">
+    {/* Spinner */}
+    <div className="relative w-16 h-16">
+      <div className={`absolute inset-0 rounded-full border-4 ${isDarkMode ? 'border-white/20' : 'border-black/20'}`}></div>
+      <div className={`absolute inset-0 rounded-full border-t-4 animate-spin ${isDarkMode ? 'border-white' : 'border-black'}`}></div>
+    </div>
+
+    {/* Animated dots */}
+    <div className={`flex gap-1 ${isDarkMode ? 'text-white' : 'text-black'} font-mono`}>
+      <span>Loading</span>
+      <span className={`animate-bounce ${loadingAnimation % 3 === 0 ? 'inline-block' : 'invisible'}`}>.</span>
+      <span className={`animate-bounce ${loadingAnimation % 3 === 1 ? 'inline-block' : 'invisible'}`}>.</span>
+      <span className={`animate-bounce ${loadingAnimation % 3 === 2 ? 'inline-block' : 'invisible'}`}>.</span>
+    </div>
+
+    {/* Random message */}
+    <p className={`italic text-sm text-center ${isDarkMode ? 'text-white/70' : 'text-black/70'}`}>
+      {getRandomLoadingMessage()}
+    </p>
+  </div>
+) : (
                       <div
                         className={`leading-relaxed ${isDarkMode ? 'text-white' : 'text-black'}`}
                         dangerouslySetInnerHTML={{

@@ -5,7 +5,7 @@ import { marked } from "marked";
 const API_URL = "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/professional/repo_info/";
 const OVERVIEW_URL = "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/overview/professional/";
 
-export default function Projects() {
+export default function Projects({ isDarkMode }) {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -40,15 +40,29 @@ export default function Projects() {
     }
   };
 
+  const bgCard = isDarkMode ? "bg-black/60 border-neutral-700" : "bg-white border-gray-300";
+  const textPrimary = isDarkMode ? "text-white" : "text-neutral-800";
+  const textSecondary = isDarkMode ? "text-neutral-400" : "text-neutral-600";
+  const gradientTitle = isDarkMode
+    ? "bg-gradient-to-r from-white to-neutral-400"
+    : "bg-gradient-to-r from-neutral-800 to-neutral-600";
+
+  const buttonHover = isDarkMode
+    ? "hover:bg-neutral-800 hover:text-white"
+    : "hover:bg-gray-50 hover:text-black";
+
+  const modalBg = isDarkMode ? "bg-neutral-900" : "bg-white";
+  const modalBorder = isDarkMode ? "border-neutral-700" : "border-neutral-200";
+
   return (
-    <section className="mb-20">
+    <section className="mb-20 transition-all duration-500">
       {/* Header */}
       <div className="flex items-center gap-4 mb-12 group">
         <div className="relative">
-          <div className="absolute inset-0 bg-neutral-100 rounded-lg blur-sm group-hover:blur-md transition-all duration-300" />
-          <Code2 className="size-8 relative text-neutral-700 group-hover:scale-110 transition-transform duration-300" />
+          <div className={`absolute inset-0 ${isDarkMode ? "bg-neutral-700" : "bg-neutral-100"} rounded-lg blur-sm group-hover:blur-md transition-all duration-300`} />
+          <Code2 className={`size-8 relative ${isDarkMode ? "text-white" : "text-neutral-700"} group-hover:scale-110 transition-transform duration-300`} />
         </div>
-        <h2 className="font-display text-4xl tracking-wide bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent">
+        <h2 className={`font-display text-4xl tracking-wide ${gradientTitle} bg-clip-text text-transparent`}>
           PROJECTS
         </h2>
       </div>
@@ -62,25 +76,23 @@ export default function Projects() {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="group bg-white border border-neutral-200 rounded-xl p-6 "
+            className={`group ${bgCard} border rounded-xl p-6 transition-all`}
           >
             <div className="space-y-4">
-              <h3 className="font-display text-2xl text-neutral-800 group-hover:text-neutral-900">
+              <h3 className={`font-display text-2xl ${textPrimary} group-hover:text-cyan-400`}>
                 {project.name}
               </h3>
-              <p className="font-serif text-neutral-600 line-clamp-2">
+              <p className={`font-serif ${textSecondary} line-clamp-2`}>
                 {project.description || "No description available."}
               </p>
-              <div className="flex justify-between items-center text-neutral-500 text-sm">
-                {/* Left Side: Language */}
+              <div className={`flex justify-between items-center ${textSecondary} text-sm`}>
                 <div className="flex items-center gap-1.5">
-                  <Github className="size-4" />
-                  <span>{project.language || "N/A"}</span>
+                  <Github className={`size-5 ${isDarkMode ? "text-white" : "text-black"}`} />
+                  <span className={`text-lg ${isDarkMode ? "text-white" : "text-black"}`}>{project.language || "N/A"}</span>
                 </div>
 
-                {/* Right Side: Button */}
                 <button
-                  className="p-3 border border-black rounded-lg hover:bg-gray-50 hover:shadow-sm transition-all duration-300 cursor-pointer"
+                  className={`p-3 border border-black rounded-lg ${buttonHover} transition-all duration-300 cursor-pointer`}
                   onClick={() => {
                     setSelectedProject(project);
                     fetchOverview(project.name);
@@ -89,7 +101,6 @@ export default function Projects() {
                   View AI Explanation
                 </button>
               </div>
-
             </div>
           </div>
         ))}
@@ -101,21 +112,21 @@ export default function Projects() {
           className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center p-4 z-50"
           onClick={(e) => e.target === e.currentTarget && setSelectedProject(null)}
         >
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-3xl max-h-[80vh] overflow-y-auto">
+          <div className={`${modalBg} rounded-2xl shadow-xl w-full max-w-3xl max-h-[80vh] overflow-y-auto`}>
             {/* Modal Header */}
-            <div className="p-6 border-b border-neutral-200">
+            <div className={`p-6 border-b ${modalBorder}`}>
               <div className="flex justify-between items-start">
-                <h3 className="font-display text-2xl text-neutral-800">
+                <h3 className={`font-display text-2xl ${textPrimary}`}>
                   {selectedProject.name}
                 </h3>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="text-neutral-500 hover:text-neutral-700 transition-colors"
+                  className={`${textSecondary} hover:text-neutral-300 transition-colors`}
                 >
                   <X className="size-6" />
                 </button>
               </div>
-              <p className="font-serif text-neutral-600 mt-2">
+              <p className={`font-serif mt-2 ${textSecondary}`}>
                 {selectedProject.description}
               </p>
             </div>
@@ -123,12 +134,12 @@ export default function Projects() {
             {/* Modal Content */}
             <div className="p-6 space-y-6">
               {loading ? (
-                <div className="text-center text-neutral-600">
+                <div className="text-center text-neutral-500">
                   Loading project details...
                 </div>
               ) : (
                 <div
-                  className="font-serif text-neutral-700 leading-relaxed"
+                  className={`font-serif leading-relaxed ${textSecondary}`}
                   dangerouslySetInnerHTML={{ __html: selectedProject.overview }}
                 />
               )}
