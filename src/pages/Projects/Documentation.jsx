@@ -53,10 +53,19 @@ const Document = () => {
           {loading && <p>Loading... give it a sec 🕒</p>}
           {error && <p className="text-red-500">{error}</p>}
           {!loading && !error && (
-            <div className="prose prose-lg max-w-none dark:prose-invert">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {fileContent}
-              </ReactMarkdown>
+            <div>
+              <div>
+                <h2 className="text-4xl font-bold">
+                  Documentation for{" "}
+                  <span className="italic">{projectName.replace(/-/g, " ")}</span>
+                </h2>
+              </div>
+
+              <div className="prose prose-lg max-w-none dark:prose-invert">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {fileContent}
+                </ReactMarkdown>
+              </div>
             </div>
           )}
         </div>
