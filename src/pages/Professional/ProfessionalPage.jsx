@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import AboutMe from "../components/ProfessionalPortfolio/AboutMe";
-import Education from "../components/ProfessionalPortfolio/Education";
-import Experience from "../components/ProfessionalPortfolio/Experience";
-import Skills from "../components/ProfessionalPortfolio/Skills";
-import Projects from "../components/ProfessionalPortfolio/Projects";
+import AboutMe from "./AboutMe";
+import Education from "./Education";
+import Experience from "./Experience";
+import Skills from "./Skills";
+import Projects from "./Projects";
 
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
 export default function ProfessionalPage() {
   const [isDarkMode, setIsDarkMode] = useState(false);

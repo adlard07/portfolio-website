@@ -82,12 +82,25 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               adelard
             </Link>
 
-            <div className="hidden md:flex items-center gap-10 tracking-wider">
+            <div className="hidden md:flex items-center gap-10 tracking-widest">
               <Link
-                to={isProfessionalPage ? "/" : "/professional"}
+                to="/"
                 className="text-md uppercase hover:opacity-70 transition-colors"
               >
-                {isProfessionalPage ? "Home" : "Professional"}
+                Home
+              </Link>
+              <Link
+                to="/professional"
+                className="text-md uppercase hover:opacity-70 transition-colors"
+              >
+                Professional
+              </Link>
+
+              <Link
+                to="/projects"
+                className="text-md uppercase hover:opacity-70 transition-colors tracking-wider"
+              >
+                Projects
               </Link>
 
               <button
@@ -154,11 +167,22 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           </div>
           <nav className="flex flex-col space-y-6 text-sm uppercase">
             <Link
-              to={isProfessionalPage ? "/" : "/professional"}
-              onClick={() => setSidebarOpen(false)}
-              className="hover:opacity-70 transition-colors"
+              to="/"
+              className="text-md uppercase hover:opacity-70 transition-colors"
             >
-              {isProfessionalPage ? "Home" : "Professional"}
+              Home
+            </Link>
+            <Link
+              to="/professional"
+              className="text-md uppercase hover:opacity-70 transition-colors"
+            >
+              Professional
+            </Link>
+            <Link
+              to="/projects"
+              className="text-md uppercase hover:opacity-70 transition-colors"
+            >
+              Projects
             </Link>
 
             <button
@@ -224,7 +248,9 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                   >
                     <FontAwesomeIcon icon={link.icon} className="w-5 h-5" />
                   </div>
-                  <span className="flex-1 text-lg font-medium">{link.label}</span>
+                  <span className="flex-1 text-lg font-medium">
+                    {link.label}
+                  </span>
                   <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
               ))}
@@ -233,7 +259,9 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             {/* Footer */}
             <div
               className={`mt-8 pt-4 border-t text-center text-sm ${
-                isDarkMode ? "border-white text-neutral-400" : "border-black text-gray-600"
+                isDarkMode
+                  ? "border-white text-neutral-400"
+                  : "border-black text-gray-600"
               }`}
             >
               Feel free to reach out on any platform above!

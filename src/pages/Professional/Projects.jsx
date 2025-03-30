@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Code2, ExternalLink, Github, X } from "lucide-react";
 import { marked } from "marked";
 
-const API_URL = "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/professional/repo_info/";
-const OVERVIEW_URL = "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/overview/professional/";
+const API_URL =
+  "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/professional/repo_info/";
+const OVERVIEW_URL =
+  "https://rzcfwvihftl75qdx3gkezvloae0vdzef.lambda-url.ap-south-1.on.aws/overview/professional/";
 
 export default function Projects({ isDarkMode }) {
   const [projects, setProjects] = useState([]);
@@ -32,15 +34,23 @@ export default function Projects({ isDarkMode }) {
       const response = await fetch(`${OVERVIEW_URL}${repoName}`);
       if (!response.ok) throw new Error("Failed to fetch overview");
       const data = await response.json();
-      setSelectedProject(prev => ({ ...prev, overview: marked(data.overview || "No overview available.") }));
+      setSelectedProject((prev) => ({
+        ...prev,
+        overview: marked(data.overview || "No overview available."),
+      }));
     } catch (err) {
-      setSelectedProject(prev => ({ ...prev, overview: marked("Failed to load overview") }));
+      setSelectedProject((prev) => ({
+        ...prev,
+        overview: marked("Failed to load overview"),
+      }));
     } finally {
       setLoading(false);
     }
   };
 
-  const bgCard = isDarkMode ? "bg-black/60 border-neutral-700" : "bg-white border-gray-300";
+  const bgCard = isDarkMode
+    ? "bg-black/60 border-neutral-700"
+    : "bg-white border-gray-300";
   const textPrimary = isDarkMode ? "text-white" : "text-neutral-800";
   const textSecondary = isDarkMode ? "text-neutral-400" : "text-neutral-600";
   const gradientTitle = isDarkMode
@@ -59,17 +69,25 @@ export default function Projects({ isDarkMode }) {
       {/* Header */}
       <div className="flex items-center gap-4 mb-12 group">
         <div className="relative">
-          <div className={`absolute inset-0 ${isDarkMode ? "bg-neutral-700" : "bg-neutral-100"} rounded-lg blur-sm group-hover:blur-md transition-all duration-300`} />
-          <Code2 className={`size-8 relative ${isDarkMode ? "text-white" : "text-neutral-700"} group-hover:scale-110 transition-transform duration-300`} />
+          <div
+            className={`absolute inset-0 ${
+              isDarkMode ? "bg-neutral-700" : "bg-neutral-100"
+            } rounded-lg blur-sm group-hover:blur-md transition-all duration-300`}
+          />
+          <Code2
+            className={`size-8 relative ${
+              isDarkMode ? "text-white" : "text-neutral-700"
+            } group-hover:scale-110 transition-transform duration-300`}
+          />
         </div>
-        <h2 className={`font-display text-4xl tracking-wide ${gradientTitle} bg-clip-text text-transparent`}>
+        <h2
+          className={`font-display text-4xl tracking-wide ${gradientTitle} bg-clip-text text-transparent`}
+        >
           PROJECTS
         </h2>
       </div>
 
-      {error && (
-        <div className="text-red-500 text-center mb-8">{error}</div>
-      )}
+      {error && <div className="text-red-500 text-center mb-8">{error}</div>}
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -79,16 +97,30 @@ export default function Projects({ isDarkMode }) {
             className={`group ${bgCard} border rounded-xl p-6 transition-all`}
           >
             <div className="space-y-4">
-              <h3 className={`font-display text-2xl ${textPrimary} group-hover:text-cyan-400`}>
+              <h3
+                className={`font-display text-2xl ${textPrimary} group-hover:text-cyan-400`}
+              >
                 {project.name}
               </h3>
               <p className={`font-serif ${textSecondary} line-clamp-2`}>
                 {project.description || "No description available."}
               </p>
-              <div className={`flex justify-between items-center ${textSecondary} text-sm`}>
+              <div
+                className={`flex justify-between items-center ${textSecondary} text-sm`}
+              >
                 <div className="flex items-center gap-1.5">
-                  <Github className={`size-5 ${isDarkMode ? "text-white" : "text-black"}`} />
-                  <span className={`text-lg ${isDarkMode ? "text-white" : "text-black"}`}>{project.language || "N/A"}</span>
+                  <Github
+                    className={`size-5 ${
+                      isDarkMode ? "text-white" : "text-black"
+                    }`}
+                  />
+                  <span
+                    className={`text-lg ${
+                      isDarkMode ? "text-white" : "text-black"
+                    }`}
+                  >
+                    {project.language || "N/A"}
+                  </span>
                 </div>
 
                 <button
@@ -110,9 +142,13 @@ export default function Projects({ isDarkMode }) {
       {selectedProject && (
         <div
           className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-          onClick={(e) => e.target === e.currentTarget && setSelectedProject(null)}
+          onClick={(e) =>
+            e.target === e.currentTarget && setSelectedProject(null)
+          }
         >
-          <div className={`${modalBg} rounded-2xl shadow-xl w-full max-w-3xl max-h-[80vh] overflow-y-auto`}>
+          <div
+            className={`${modalBg} rounded-2xl shadow-xl w-full max-w-3xl max-h-[80vh] overflow-y-auto`}
+          >
             {/* Modal Header */}
             <div className={`p-6 border-b ${modalBorder}`}>
               <div className="flex justify-between items-start">

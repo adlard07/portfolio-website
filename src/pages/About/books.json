@@ -1,0 +1,90 @@
+[
+    {
+        "title": "Ghost In The Wires",
+        "imageLink": "https://www.hachettebookgroup.com/wp-content/uploads/2023/09/9780316037723.jpg?w=423",
+        "author": "Kevin Mitnick and William L. Simon",
+        "amazonLink": "https://www.amazon.in/GHOST-WIRES-ADVENTURES-WORLDS-WANTED/dp/0316037729",
+        "about": "Ghost in the Wires is a thrilling true story of intrigue, suspense, and unbelievable escapes — and a portrait of a visionary who forced the authorities to rethink the way they pursued him, and forced companies to rethink the way they protect their most sensitive information.",
+        "length": 301
+    },
+    {
+        "title": "What Every BODY is Saying",
+        "imageLink": "https://m.media-amazon.com/images/I/51jXfz5vfPL.jpg",
+        "author": "Joe Navarro and Marvin Karlins",
+        "amazonLink": "https://www.amazon.in/What-Every-Body-Saying-Navarro/dp/0061438294",
+        "about": "What Every BODY is Saying by Joe Navarro is a fascinating read on nonverbal communication. Navarro, a former FBI agent, provides insights on body language, facial expressions, and behavior interpretation to help you better understand people and situations.",
+        "length": 272
+    },
+    {
+        "title": "The Art of Intrusion",
+        "imageLink": "https://m.media-amazon.com/images/I/71sN33WXHTL._AC_UF1000,1000_QL80_.jpg",
+        "author": "Kevin Mitnick and William L. Simon",
+        "amazonLink": "https://www.amazon.in/Art-Intrusion-Exploits-Intruders-Deceivers/dp/0471782661",
+        "about": "The Art of Intrusion: The Real Stories Behind the Exploits of Hackers, Intruders & Deceivers is a book by Kevin Mitnick that is a collection of stories about social engineering as performed by other hackers. Each story ends by summarizing insight into the attack as well as measures to defend against it.",
+        "length": 54
+    },
+    {
+        "title": "The 48 Laws of Power",
+        "imageLink": "https://m.media-amazon.com/images/I/61UZS3QA1UL._AC_UF1000,1000_QL80_.jpg",
+        "author": "Robert Greene",
+        "amazonLink": "https://www.amazon.in/Laws-Power-Robert-Greene-Collection/dp/1861972784",
+        "about": "The 48 laws are illustrated through the tactics, triumphs and failures of great figures from the past who have wielded - or been victimised by - power.",
+        "length": 272
+    },
+    {
+        "title": "The Art of Seduction",
+        "imageLink": "https://m.media-amazon.com/images/I/71lrbuPRRjL._UF894,1000_QL80_.jpg",
+        "author": "Robert Greene",
+        "amazonLink": "https://www.amazon.in/Art-Seduction-Robert-Greene/dp/0142001198",
+        "about": "The Art of Seduction (2001) examines the amoral game of seduction, explaining how seduction always starts in the mind and that the most successful seducers know this very well indeed. It explains strategies for inciting interest, disorientating the target of seduction, stirring desire and kindling emotions.",
+        "length": 54
+    },
+    {
+        "title": "Dangerous Personalities: An FBI Profiler Shows You How",
+        "imageLink": "https://img2.od-cdn.com/ImageType-100/0111-1/%7B58E219D3-21D1-48EB-9ED2-32200DA75455%7DImg100.jpg",
+        "author": "Joe Navarro and Toni Sciarra Poynter",
+        "amazonLink": "https://www.amazon.in/Dangerous-Personalities-Profiler-Identify-Yourself/dp/1635653363",
+        "about": "Dangerous Personalities by Joe Navarro is a book that sheds light on the dark side of human behavior. It examines the traits and behaviors of individuals with dangerous personalities, providing insights on how to identify, avoid, and protect oneself from them.",
+        "length": 272
+    },
+    {
+        "title": "How Not to Be Wrong: The Power of Mathematical Thinking",
+        "imageLink": "https://m.media-amazon.com/images/I/51D1tuz3XmL._AC_UF1000,1000_QL80_.jpg",
+        "author": "Jordan Ellenberg",
+        "amazonLink": "https://www.amazon.in/How-Not-Be-Wrong-Mathematical/dp/0143127535",
+        "about": "How Not to Be Wrong explores how mathematical thinking influences our daily lives and how understanding probability, statistics, and logic can prevent us from making foolish mistakes.",
+        "length": 480
+    },
+    {
+        "title": "Thinking from A to Z",
+        "imageLink": "https://m.media-amazon.com/images/I/41GQC4BWY8L._AC_UF1000,1000_QL80_.jpg",
+        "author": "Nigel Warburton",
+        "amazonLink": "https://www.amazon.in/Thinking-Z-Nigel-Warburton/dp/0415433712",
+        "about": "Thinking from A to Z is a beginner-friendly guide to critical thinking that explains logical fallacies, argument structures, and how to develop a more rational way of thinking.",
+        "length": 176
+    },
+    {
+        "title": "The Art of Deception",
+        "imageLink": "https://m.media-amazon.com/images/I/61vKRgeuSGL.jpg",
+        "author": "Kevin Mitnick and William L. Simon",
+        "amazonLink": "https://www.amazon.in/Art-Deception-Controlling-Element-Security/dp/076454280X",
+        "about": "The Art of Deception delves into the world of social engineering, showing how hackers manipulate people into giving up valuable information and how individuals and organizations can protect themselves.",
+        "length": 384
+    },
+    {
+        "title": "Social Engineering: The Art of Human Hacking",
+        "imageLink": "https://m.media-amazon.com/images/I/61IvJSbgTDL.jpg",
+        "author": "Christopher Hadnagy",
+        "amazonLink": "https://www.amazon.in/Social-Engineering-Art-Human-Hacking/dp/0470639539",
+        "about": "Social Engineering: The Art of Human Hacking is a deep dive into the psychological tricks hackers use to manipulate people and gain access to secure systems, teaching readers how to recognize and counteract these tactics.",
+        "length": 416
+    },
+    {
+        "title": "The Hunt for the Dark Web's Biggest Kingpin",
+        "imageLink": "https://media.sailthru.com/composer/images/sailthru-prod-5wd/editor_images/alphabay%20sign%20up%20header.jpg",
+        "author": "Andy Greenberg",
+        "amazonLink": "https://www.amazon.in/Hunt-Dark-Webs-Biggest-Kingpin/dp/B08DHT6M34",
+        "about": "This investigative piece dives into the world of the dark web, tracking down the biggest cybercriminals and shedding light on their tactics, motivations, and the law enforcement efforts to take them down.",
+        "length": 320
+    }
+]
