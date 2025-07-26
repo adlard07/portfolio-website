@@ -92,10 +92,12 @@ const ProjectTiles = ({ isDarkMode }) => {
             }`}
           >
             <h2 className="text-[18px] font-bold mb-2">
-              Click the project tabs to generate roast
+              Click the project tabs to view details
             </h2>
             <p className="text-md italic">
-              *Roasts are AI-generated and may contain traces of truth
+              *The projects are fetched from a server, so if they don't
+              appear immediately, it's not you, it's me. Or maybe the server is just
+              taking its sweet time.
             </p>
           </div>
         </div>

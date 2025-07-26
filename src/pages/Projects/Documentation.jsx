@@ -29,6 +29,7 @@ const Document = () => {
         const response = await fetch(`${FILE_CONTENT_URL}${projectName}`);
         if (!response.ok) throw new Error("Failed to fetch content");
         const data = await response.json();
+        console.log(data);
         setFileContent(typeof data.content === "string" ? data.content : "");
       } catch (err) {
         setError("Something went wrong. Blame the server gremlins.");
@@ -56,7 +57,7 @@ const Document = () => {
             <div>
               <div>
                 <h2 className="text-4xl font-bold">
-                  Documentation for{" "}
+                  Documentation for{" "} <a href={{}}/>
                   <span className="italic">{projectName.replace(/-/g, " ")}</span>
                 </h2>
               </div>
