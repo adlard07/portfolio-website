@@ -1,5 +1,5 @@
 import React from "react";
-import SelfImage from "../../assets/self-cllg.jpg";
+import SelfImage from "../../assets/self-museum.jpg";
 
 const AboutSection = ({ isDarkMode }) => {
   const containerClasses = isDarkMode
