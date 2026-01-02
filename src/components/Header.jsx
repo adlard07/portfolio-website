@@ -8,6 +8,7 @@ import {
   faTwitter,
   faReddit,
   faStackOverflow,
+  faMailchimp,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Navbar = ({ isDarkMode, toggleTheme }) => {
@@ -42,6 +43,12 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
       icon: faStackOverflow,
       href: "https://stackoverflow.com/users/23564658/adlard",
       label: "Stack Overflow",
+      color: "text-[#F48024]",
+    },
+    { 
+      icon: faMailchimp,
+      href: "https://stackoverflow.com/users/23564658/adlard",
+      label: "Email",
       color: "text-[#F48024]",
     },
   ];
